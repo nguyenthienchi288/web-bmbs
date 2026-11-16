@@ -1,26 +1,55 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #eef2ff;
+  background-image:
+    radial-gradient(at 12% 10%, rgba(147, 197, 253, 0.55) 0px, transparent 48%),
+    radial-gradient(at 88% 15%, rgba(216, 180, 254, 0.50) 0px, transparent 48%),
+    radial-gradient(at 50% 55%, rgba(199, 210, 254, 0.40) 0px, transparent 55%),
+    radial-gradient(at 20% 90%, rgba(167, 243, 208, 0.42) 0px, transparent 50%),
+    radial-gradient(at 85% 88%, rgba(253, 230, 138, 0.38) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #0f172a;
+  -webkit-tap-highlight-color: transparent;
 }
+
+.safe-bottom { padding-bottom: 118px; }
+
+.ios-glass {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  box-shadow: 0 10px 34px -4px rgba(15, 23, 42, 0.06), 0 2px 8px -1px rgba(15, 23, 42, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+.ios-notif-stack > .ios-notif-card {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, background-color 0.25s ease;
+}
+.ios-notif-stack > .ios-notif-card:hover {
+  transform: translateY(-2px) scale(1.005);
+}
+
+.spinner {
+  border: 2.5px solid rgba(226, 232, 240, 0.8);
+  border-top: 2.5px solid #2563eb;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.65s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-14px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes sheetSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-enter { animation: slideInDown 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.sheet-enter { animation: sheetSlideUp 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.pre-line { white-space: pre-line; }
