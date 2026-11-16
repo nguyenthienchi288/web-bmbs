@@ -1,6 +1,7 @@
  // =========================================================================
   // MODULE FRONTEND JAVASCRIPT CHUYÊN NGHIỆP (AppJS.html - BMBS v2.3.0 iOS 27)
   // =========================================================================
+  const LOGO_URL = '/logo.png';
   const STORAGE_KEY_USER = 'BMBS_SAVED_USER_V2';
   const DUES_RATE_DEFAULT = 5000;
   let currentUser = null;
